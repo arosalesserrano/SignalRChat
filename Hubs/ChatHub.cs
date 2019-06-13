@@ -20,7 +20,7 @@ namespace SignalRChat.Hubs
             juez = TagIds[0];
             puntuacion = TagIds[1];
             dorsal = TagIds[2];
-            string connectionString = "datasource=192.168.0.94;port=3306;username=apppruebas;password=Capeluam209173$$_;database=test;";
+            string connectionString = "datasource=localhost;port=3306;username=apppruebas;password=Capeluam209173$$_;database=test;";
             // Tu consulta en SQL
             //string query = "UPDATE SCORE SET P = 4 WHERE id = 5";
 
