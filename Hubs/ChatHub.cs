@@ -42,6 +42,8 @@ namespace SignalRChat.Hubs
             // A consultar !
             try
             {
+                await Clients.All.SendAsync("ReceiveMessage", user, "intentamos acceder a la base de datos");
+
                 // Abre la base de datos
                 databaseConnection.Open();
                 DataSet ds = new DataSet();
