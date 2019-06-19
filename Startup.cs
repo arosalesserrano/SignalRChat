@@ -59,7 +59,7 @@ namespace SignalRChat
                 .AllowAnyHeader()
                 .AllowAnyMethod()
                 .SetIsOriginAllowed((host) => true)
-                .AllowCredentials()
+                //.AllowCredentials()
             );
 
             app.UseMvc();
