@@ -55,6 +55,13 @@ namespace SignalRChat
                 routes.MapHub<ChatHub>("/chatHub");
             });
 
+            app.UseCors(builder => builder
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .SetIsOriginAllowed((host) => true)
+                .AllowCredentials()
+            );
+
             app.UseMvc();
         }
     }

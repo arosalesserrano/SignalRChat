@@ -11,7 +11,7 @@ namespace SignalRChat.Pages
     {
         public void OnGet()
         {
-
+            
         }
     }
 }

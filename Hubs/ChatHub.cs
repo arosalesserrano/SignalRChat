@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
@@ -9,9 +10,12 @@ namespace SignalRChat.Hubs
 {
     public class ChatHub : Hub
     {
+        
+
         public async Task SendMessage(string user, string message)
         {
-            string juez="";
+            await Clients.All.SendAsync("ReceiveMessage", user, "Mensajerecibido");
+            string juez ="";
             string dorsal="";
             string puntuacion="";
             string roljuez="";
@@ -20,7 +24,7 @@ namespace SignalRChat.Hubs
             juez = TagIds[0];
             puntuacion = TagIds[1];
             dorsal = TagIds[2];
-            string connectionString = "datasource=localhost;port=3306;username=apppruebas;password=Capeluam209173$$_;database=test;";
+            string connectionString = "datasource=192.168.0.94;port=3306;username=apppruebas;password=Capeluam209173$$_;database=test;";
             // Tu consulta en SQL
             //string query = "UPDATE SCORE SET P = 4 WHERE id = 5";
 
@@ -68,12 +72,6 @@ namespace SignalRChat.Hubs
                         queryIntroducirpuntuacionesscore = "UPDATE SCORE SET " + roljuez + "='" + puntuacion + "' WHERE panel='" + paneljuez + "' and dorsal='" + dorsal + "' and enablescore='1'";
                         MySqlCommand commandDatabaseintroducirpuntuacionesscore = new MySqlCommand(queryIntroducirpuntuacionesscore, databaseConnection);
                         commandDatabaseintroducirpuntuacionesscore.ExecuteNonQuery();
-
-
-
-
-
-
                     }
 
                     // aqui hacemos lo que tengamos que hacer 
