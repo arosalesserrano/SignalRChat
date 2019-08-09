@@ -7,6 +7,7 @@ namespace SignalRChat.Models
 {
     public class mensaje
     {
+        public string tipomensaje { get; set; }
         public string puntuacion { get; set; }
         public string dorsal { get; set; }
         public string nota { get; set; }

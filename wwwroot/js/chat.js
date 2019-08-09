@@ -6,7 +6,8 @@ var connection = new signalR.HubConnectionBuilder().withUrl("http://192.168.0.94
 document.getElementById("sendButton").disabled = true;
 
 connection.on("ReceiveMessage", function (user, message) {
-    var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    //var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    var msg = message.nota;
     var encodedMsg = user + " puntua " + msg;
     document.getElementById("dorsalInput").value = msg;
     var li = document.createElement("li");
