@@ -14,7 +14,11 @@ namespace SignalRChat.Hubs
 
         public async Task SendMessage(string user, string message)
         {
-            await Clients.All.SendAsync("ReceiveMessage", user, "Mensajerecibido");
+            Models.mensaje mensajjje = new Models.mensaje();
+            mensajjje.dorsal = "10";
+            mensajjje.puntuacion = "8.5";
+            mensajjje.nota = "intentamos acceder a la base de datos";
+            await Clients.All.SendAsync("ReceiveMessage", user, mensajjje);
             string juez ="";
             string dorsal="";
             string puntuacion="";
