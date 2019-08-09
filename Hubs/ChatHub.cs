@@ -46,7 +46,11 @@ namespace SignalRChat.Hubs
             // A consultar !
             try
             {
-                await Clients.All.SendAsync("ReceiveMessage", user, "intentamos acceder a la base de datos");
+                Models.mensaje mensajje = new Models.mensaje();
+                mensajje.dorsal = "10";
+                mensajje.puntuacion = "8.5";
+                mensajje.nota = "intentamos acceder a la base de datos";
+                await Clients.All.SendAsync("ReceiveMessage", user, mensajje);
 
                 // Abre la base de datos
                 databaseConnection.Open();
