@@ -7,13 +7,20 @@ document.getElementById("sendButton").disabled = true;
 
 connection.on("ReceiveMessage", function (user, message) {
     //var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    // segun el tipo de mensaje lo pondremos en la lista messagesList o en la lista logList
     //if(message.tipomensaje)
+
     var msg = message.nota;
     var encodedMsg = user + " tipo mensaje: " + message.tipomensaje + ". Puntua " + msg;
     document.getElementById("dorsalInput").value = msg;
     var li = document.createElement("li");
     li.textContent = encodedMsg;
-    document.getElementById("messagesList").appendChild(li);
+    if (message.tipomensaje == "Bienvenida") {
+        document.getElementById("logList").appendChild(li);
+
+    } else {
+        document.getElementById("messagesList").appendChild(li);
+}
 });
 
 connection.start().then(function () {
