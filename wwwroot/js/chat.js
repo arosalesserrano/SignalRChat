@@ -7,8 +7,9 @@ document.getElementById("sendButton").disabled = true;
 
 connection.on("ReceiveMessage", function (user, message) {
     //var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    //if(message.tipomensaje)
     var msg = message.nota;
-    var encodedMsg = user + " puntua " + msg;
+    var encodedMsg = user + " tipo mensaje: " + message.tipomensaje + ". Puntua " + msg;
     document.getElementById("dorsalInput").value = msg;
     var li = document.createElement("li");
     li.textContent = encodedMsg;
