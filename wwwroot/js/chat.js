@@ -16,7 +16,7 @@ connection.on("ReceiveMessage", function (user, message) {
     document.getElementById("dorsalInput").value = msg;
     var li = document.createElement("li");
     li.textContent = encodedMsg;
-    if (message.tipomensaje == "Bienvenida") {
+    if (message.tipomensaje == "Bienvenida" || tipomensaje=="Control") {
         document.getElementById("logList").appendChild(li);
 
     } else {
@@ -35,6 +35,7 @@ document.getElementById("sendButton").addEventListener("click", function (event)
     //var puntuacion = document.getElementById("enteroInput").value + "." + document.getElementById("decimaInput").value;
     //var dorsal = document.getElementById("dorsalInput").value;
     //var message = user + "," + puntuacion + "," + dorsal;
+    msgprueba.tipomensaje = "Control";
     msgprueba.nota = "Enviado desde javascript";
     msgprueba.usuario = document.getElementById("userInput").value;
     message = msgprueba;
