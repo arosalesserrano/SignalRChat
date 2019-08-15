@@ -16,7 +16,7 @@ connection.on("ReceiveMessage", function (user, message) {
     document.getElementById("dorsalInput").value = msg;
     var li = document.createElement("li");
     li.textContent = encodedMsg;
-    if (message.tipomensaje == "Bienvenida" || message.tipomensaje=="Control") {
+    if (message.tipomensaje == "Bienvenida" || message.tipomensaje == "Control") {
         document.getElementById("logList").appendChild(li);
 
     } else {
