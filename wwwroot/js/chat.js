@@ -10,6 +10,7 @@ connection.on("ReceiveMessage", function (user, message) {
     //var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     // segun el tipo de mensaje lo pondremos en la lista messagesList o en la lista logList
     //if(message.tipomensaje)
+    alert(message);
     var msg = message.nota;
     var encodedMsg = user + " tipo mensaje: " + message.tipomensaje + ". Puntua " + msg;
     document.getElementById("dorsalInput").value = msg;
@@ -34,12 +35,12 @@ connection.start().then(function () {
 
 document.getElementById("sendButton").addEventListener("click", function (event) {
     var user = document.getElementById("userInput").value;
-    //var puntuacion = document.getElementById("enteroInput").value + "." + document.getElementById("decimaInput").value;
-    //var dorsal = document.getElementById("dorsalInput").value;
-    //var message = user + "," + puntuacion + "," + dorsal;
-    message.tipomensaje = "Control";
-    message.nota = "Enviado desde javascript";
-    message.usuario = document.getElementById("userInput").value;
+    var puntuacion = document.getElementById("enteroInput").value + "." + document.getElementById("decimaInput").value;
+    var dorsal = document.getElementById("dorsalInput").value;
+    var message = user + "," + puntuacion + "," + dorsal;
+    //message.tipomensaje = "Control";
+    //message.nota = "Enviado desde javascript";
+    //message.usuario = document.getElementById("userInput").value;
     connection.invoke("SendMessage", user, message).catch(function (err) {
         return console.error(err.toString());
     });
