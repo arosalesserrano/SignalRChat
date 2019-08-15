@@ -34,7 +34,7 @@ connection.start().then(function () {
 });
 
 document.getElementById("sendButton").addEventListener("click", function (event) {
-    //var user = document.getElementById("userInput").value;
+    var user = document.getElementById("userInput").value;
     //var puntuacion = document.getElementById("enteroInput").value + "." + document.getElementById("decimaInput").value;
     //var dorsal = document.getElementById("dorsalInput").value;
     //var message = user + "," + puntuacion + "," + dorsal;
