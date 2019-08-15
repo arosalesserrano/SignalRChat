@@ -38,6 +38,7 @@ document.getElementById("sendButton").addEventListener("click", function (event)
     //var puntuacion = document.getElementById("enteroInput").value + "." + document.getElementById("decimaInput").value;
     //var dorsal = document.getElementById("dorsalInput").value;
     //var message = user + "," + puntuacion + "," + dorsal;
+    var message;
     msgprueba.tipomensaje = "Control";
     msgprueba.nota = "Enviado desde javascript";
     msgprueba.usuario = document.getElementById("userInput").value;
