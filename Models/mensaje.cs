@@ -11,6 +11,7 @@ namespace SignalRChat.Models
         public string puntuacion { get; set; }
         public string dorsal { get; set; }
         public string nota { get; set; }
+        public string usuario { get; set; }
       //  public DateTime p3 { get; set; }
     }
 }

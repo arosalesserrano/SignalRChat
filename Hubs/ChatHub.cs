@@ -50,9 +50,10 @@ namespace SignalRChat.Hubs
             try
             {
                 Models.mensaje mensajje = new Models.mensaje();
+                mensajje.tipomensaje = "Envio-mensaje";
                 mensajje.dorsal = "10";
                 mensajje.puntuacion = "8.5";
-                mensajje.nota = "intentamos acceder a la base de datos";
+                mensajje.nota = "Ahora estamos dentro del try";
                 await Clients.All.SendAsync("ReceiveMessage", user, mensajje);
 
                 // Abre la base de datos
