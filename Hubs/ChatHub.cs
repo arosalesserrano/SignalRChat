@@ -17,7 +17,7 @@ namespace SignalRChat.Hubs
             Models.mensaje mensajjje = new Models.mensaje();
             mensajjje.tipomensaje = "Bienvenida";
             mensajjje.nota = "intentamos acceder a la base de datos";
-            await Clients.All.SendAsync("ReceiveMessage", user, mensajjje);
+            await Clients.All.SendAsync("ReceiveMessage", "arosales1", mensajjje);
             string juez ="";
             string dorsal="";
             string puntuacion="";
@@ -83,11 +83,11 @@ namespace SignalRChat.Hubs
                     }
 
                     // aqui hacemos lo que tengamos que hacer 
-                    await Clients.All.SendAsync("ReceiveMessage", user, "Perfe");
+                    await Clients.All.SendAsync("ReceiveMessage", "arosales2", "Perfe");
                 }
                 else
                 {
-                    await Clients.All.SendAsync("ReceiveMessage", user, "Error");
+                    await Clients.All.SendAsync("ReceiveMessage", "arosales3", "Error");
                 }
                 //ad
                //commandDatabaseintroducirpuntuaciones.ExecuteNonQuery();
