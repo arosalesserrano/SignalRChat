@@ -16,6 +16,7 @@ namespace SignalRChat.Hubs
         {
             Models.mensaje mensajjje = new Models.mensaje();
             mensajjje.tipomensaje = "Bienvenida";
+            mensajjje.timestamp=(Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
             mensajjje.nota = "intentamos acceder a la base de datos";
             await Clients.All.SendAsync("ReceiveMessage", "arosales1", mensajjje);
             string juez ="";

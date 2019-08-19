@@ -12,7 +12,7 @@ connection.on("ReceiveMessage", function (user, message) {
     //if(message.tipomensaje)
     alert(message);
     var msg = message.nota;
-    var encodedMsg = user + " tipo mensaje: " + message.tipomensaje + ". Puntua " + msg;
+    var encodedMsg = "Timestamp:"+ message.timestamp + "Usuario:" + user + " tipo mensaje: " + message.tipomensaje + ". Puntua " + msg;
     document.getElementById("dorsalInput").value = msg;
     var li = document.createElement("li");
     li.textContent = encodedMsg;
