@@ -67,6 +67,8 @@ namespace SignalRChat.Hubs
                 string queryIntroducirLogMensajes = "INSERT INTO Logmensajes(Mensaje) VALUES('" + mensajje.nota + "') ";
                 MySqlCommand commandDatabaseintroducirLogMensajes = new MySqlCommand(queryIntroducirLogMensajes, databaseConnection);
                 commandDatabaseintroducirLogMensajes.ExecuteNonQuery();
+                databaseConnection.Close();
+                /*
                 DataSet ds = new DataSet();
                 ad.Fill(ds);
                 if (ds.Tables[0].Rows.Count>0) // Si el juez existe y está activo, inserta la puntuación
@@ -102,6 +104,7 @@ namespace SignalRChat.Hubs
                //commandDatabaseintroducirpuntuaciones.ExecuteNonQuery();
              
                 databaseConnection.Close();
+                */
             }
             catch (Exception ex)
             {
