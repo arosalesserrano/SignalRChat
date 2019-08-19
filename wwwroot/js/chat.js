@@ -12,7 +12,7 @@ connection.on("ReceiveMessage", function (user, message) {
     //if(message.tipomensaje)
     alert(message);
     var msg = message.nota;
-    var encodedMsg = "Timestamp: "+ message.timestamp + "Usuario: " + user + " tipo mensaje: " + message.tipomensaje + ". Puntua " + msg;
+    var encodedMsg = "Timestamp: "+ message.timestamp + " Usuario: " + user + " tipo mensaje: " + message.tipomensaje + ". Puntua " + msg;
     document.getElementById("dorsalInput").value = encodedMsg;
     var li = document.createElement("li");
     li.textContent = encodedMsg;
@@ -37,7 +37,8 @@ document.getElementById("sendButton").addEventListener("click", function (event)
     var user = document.getElementById("userInput").value;
     var puntuacion = document.getElementById("enteroInput").value + "." + document.getElementById("decimaInput").value;
     var dorsal = document.getElementById("dorsalInput").value;
-    var message = user + "," + puntuacion + "," + dorsal;
+    var timestamp = Math.floor(Date.now() / 1000);
+    var message = timestamp + "," + user + "," + puntuacion + "," + dorsal;
     //message.tipomensaje = "Control";
     //message.nota = "Enviado desde javascript";
     //message.usuario = document.getElementById("userInput").value;

@@ -15,10 +15,12 @@ namespace SignalRChat.Hubs
         public async Task SendMessage(string user, string message)
         {
             Models.mensaje mensajjje = new Models.mensaje();
-            mensajjje.tipomensaje = "Bienvenida";
+            // Inicialmente se utilizaba como log el propio envío de mensajes
+            /*mensajjje.tipomensaje = "Bienvenida";
             mensajjje.timestamp=(Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
             mensajjje.nota = "intentamos acceder a la base de datos";
             await Clients.All.SendAsync("ReceiveMessage", "arosales1", mensajjje);
+            */
             string juez ="";
             string dorsal="";
             string puntuacion="";
@@ -31,7 +33,7 @@ namespace SignalRChat.Hubs
             string connectionString = "datasource=192.168.0.94;port=3306;username=apppruebas;password=Capeluam209173$$_;database=test;";
             // Tu consulta en SQL
             //string query = "UPDATE SCORE SET P = 4 WHERE id = 5";
-
+            
             string queryIntroducirpuntuaciones = "INSERT INTO Puntuaciones(Juez, Puntuacion, Dorsal) VALUES('"+juez+"','"+puntuacion+"','"+dorsal+"') ";
             string queryConsularJuezValido = "SELECT * FROM Jueces WHERE ACTIVO=1 AND ID='" + juez+"'";
             string queryConsularRolJuez = "SELECT rol,panel FROM RolesJueces WHERE IDJUEZ='" + juez + "'";
@@ -39,6 +41,7 @@ namespace SignalRChat.Hubs
             // Prepara la conexión
             MySqlDataAdapter ad = new MySqlDataAdapter();
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            
             MySqlCommand commandDatabaseintroducirpuntuaciones = new MySqlCommand(queryIntroducirpuntuaciones, databaseConnection);
             MySqlCommand commandConsularJuezValido = new MySqlCommand(queryConsularJuezValido, databaseConnection);
             MySqlCommand commandConsularRolJuez = new MySqlCommand(queryConsularRolJuez, databaseConnection);
@@ -55,10 +58,15 @@ namespace SignalRChat.Hubs
                 mensajje.dorsal = "10";
                 mensajje.puntuacion = "8.5";
                 mensajje.nota = "Ahora estamos dentro del try";
+
                 await Clients.All.SendAsync("ReceiveMessage", user, mensajje);
 
                 // Abre la base de datos
                 databaseConnection.Open();
+                // esccribir el log
+                string queryIntroducirLogMensajes = "INSERT INTO Logmensajes(Mensaje) VALUES('" + "Hola Caracola" + "') ";
+                MySqlCommand commandDatabaseintroducirLogMensajes = new MySqlCommand(queryIntroducirLogMensajes, databaseConnection);
+                commandDatabaseintroducirLogMensajes.ExecuteNonQuery();
                 DataSet ds = new DataSet();
                 ad.Fill(ds);
                 if (ds.Tables[0].Rows.Count>0) // Si el juez existe y está activo, inserta la puntuación
