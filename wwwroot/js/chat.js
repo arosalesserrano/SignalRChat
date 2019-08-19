@@ -10,7 +10,7 @@ connection.on("ReceiveMessage", function (user, message) {
     //var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     // segun el tipo de mensaje lo pondremos en la lista messagesList o en la lista logList
     //if(message.tipomensaje)
-    alert(message);
+   // alert(message);
     var msg = message.nota;
     var encodedMsg = "Timestamp: "+ message.timestamp + " Usuario: " + user + " tipo mensaje: " + message.tipomensaje + ". Puntua " + msg;
     document.getElementById("dorsalInput").value = encodedMsg;
