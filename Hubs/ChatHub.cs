@@ -65,7 +65,7 @@ namespace SignalRChat.Hubs
                 // Abre la base de datos
                 databaseConnection.Open();
                 // esccribir el log
-                string queryIntroducirLogMensajes = "INSERT INTO Logmensajes(Mensaje) VALUES('" + mensajje.tipomensaje + ","+ mensajje.nota + "') ";
+                string queryIntroducirLogMensajes = "INSERT INTO Logmensajes(Mensaje) VALUES('" + user + ","+ message + "') ";
                 MySqlCommand commandDatabaseintroducirLogMensajes = new MySqlCommand(queryIntroducirLogMensajes, databaseConnection);
                 commandDatabaseintroducirLogMensajes.ExecuteNonQuery();
                 databaseConnection.Close();
