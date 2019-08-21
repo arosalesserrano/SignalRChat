@@ -16,11 +16,11 @@ namespace SignalRChat.Hubs
         {
             Models.mensaje mensajjje = new Models.mensaje();
             // Inicialmente se utilizaba como log el propio envío de mensajes
-            /*mensajjje.tipomensaje = "Bienvenida";
+            mensajjje.tipomensaje = "Bienvenida";
             mensajjje.timestamp=(Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-            mensajjje.nota = "intentamos acceder a la base de datos";
-            await Clients.All.SendAsync("ReceiveMessage", "arosales1", mensajjje);
-            */
+            mensajjje.nota = "Se envia mensaje";
+            await Clients.All.SendAsync("ReceiveMessage", "difusion_jueces", mensajjje);
+            
             string juez ="";
             string dorsal="";
             string puntuacion="";

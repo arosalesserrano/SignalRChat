@@ -16,11 +16,11 @@ connection.on("ReceiveMessage", function (user, message) {
     document.getElementById("dorsalInput").value = encodedMsg;
     var li = document.createElement("li");
     li.textContent = encodedMsg;
-    if (message.tipomensaje == "Bienvenida" || message.tipomensaje == "Control") {
-        document.getElementById("logList").appendChild(li);
+    if (user == "arosales" || user== "difusion_jueces") {
+        document.getElementById("messagesList").appendChild(li);
 
     } else {
-        document.getElementById("messagesList").appendChild(li);
+        document.getElementById("logList").appendChild(li);
 }
 });
 
