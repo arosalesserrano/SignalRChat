@@ -51,6 +51,7 @@ namespace SignalRChat.Hubs
             //MySqlDataReader reader;
 
             // A consultar !
+
             try
             {
                 Models.mensaje mensajje = new Models.mensaje();
@@ -64,7 +65,7 @@ namespace SignalRChat.Hubs
                 // Abre la base de datos
                 databaseConnection.Open();
                 // esccribir el log
-                string queryIntroducirLogMensajes = "INSERT INTO Logmensajes(Mensaje) VALUES('" + mensajje.nota + "') ";
+                string queryIntroducirLogMensajes = "INSERT INTO Logmensajes(Mensaje) VALUES('" + mensajje.tipomensaje + ","+ mensajje.nota + "') ";
                 MySqlCommand commandDatabaseintroducirLogMensajes = new MySqlCommand(queryIntroducirLogMensajes, databaseConnection);
                 commandDatabaseintroducirLogMensajes.ExecuteNonQuery();
                 databaseConnection.Close();
@@ -104,8 +105,10 @@ namespace SignalRChat.Hubs
                //commandDatabaseintroducirpuntuaciones.ExecuteNonQuery();
              
                 databaseConnection.Close();
-                */
+
+    */
             }
+
             catch (Exception ex)
             {
                 // Mostrar cualquier excepción
