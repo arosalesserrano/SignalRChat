@@ -49,7 +49,6 @@ namespace SignalRChat.Hubs
             commandDatabaseintroducirpuntuaciones.CommandTimeout = 60;
             commandConsularJuezValido.CommandTimeout = 60;
             //MySqlDataReader reader;
-
             // A consultar !
 
             try
