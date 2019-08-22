@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace SignalRChat.Pages
 {
-    public class IndexModel : PageModel
+    public class VistalogModel : PageModel
     {
         public void OnGet()
         {
