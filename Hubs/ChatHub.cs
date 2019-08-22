@@ -10,9 +10,7 @@ namespace SignalRChat.Hubs
 {
     public class ChatHub : Hub
     {
-        
-
-        public async Task SendMessage(string user, string message)
+       public async Task SendMessage(string user, string message)
         {
             Models.mensaje mensajjje = new Models.mensaje();
             // Inicialmente se utilizaba como log el propio envío de mensajes
@@ -26,7 +24,7 @@ namespace SignalRChat.Hubs
             string puntuacion="";
             string roljuez="";
             string paneljuez="";
-                        String[] TagIds = message.Split(",");
+            String[] TagIds = message.Split(",");
             juez = "arosales";// TagIds[0];
             puntuacion = "0.00";// TagIds[1];
             dorsal = "sdsd";// TagIds[2];
