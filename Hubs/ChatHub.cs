@@ -57,7 +57,7 @@ namespace SignalRChat.Hubs
                 mensajje.puntuacion = "8.5";
                 mensajje.nota = "Ahora estamos dentro del try";
 
-                //await Clients.All.SendAsync("ReceiveMessage", user, mensajje);
+                await Clients.All.SendAsync("ReceiveMessage", user, mensajje);
 
                 // Abre la base de datos
                 databaseConnection.Open();
