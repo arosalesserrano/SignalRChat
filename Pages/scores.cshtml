@@ -5,6 +5,12 @@
 }
 
 <h1>scores</h1>
-<asp:GridView ID="gvScore" runat="server" AutoGenerateColumns="True" BackColor="White"  
-BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" >
+<asp:GridView ID="gvScore" runat="server" AutoGenerateColumns="True" BackColor="White"
+              BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4">
 </asp:GridView>
+<div class="col-12">
+    Lista de mensajes log:
+    <ul id="logList"></ul>
+</div>
+<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chatlogmensajes.js"></script>
