@@ -17,7 +17,7 @@ namespace SignalRChat.Hubs
             mensajjje.tipomensaje = "Bienvenida";
             mensajjje.timestamp=(Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
             mensajjje.nota = "Se envia mensaje";
-            await Clients.All.SendAsync("ReceiveMessage", "difusion_jueces", mensajjje);
+            await Clients.All.SendAsync("ReceiveMessage", "difusion_jueces", message);
             
             string juez ="";
             string dorsal="";
