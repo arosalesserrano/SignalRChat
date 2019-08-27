@@ -10,10 +10,9 @@ connection.on("ReceiveMessage", function (user, message) {
     // segun el tipo de mensaje lo pondremos en la lista messagesList o en la lista logList
     //if(message.tipomensaje)
    // alert(message);
-    ¡    var encodedMsg = "Timestamp: " + message.timestamp + " Usuario: " + user + " tipo mensaje: " + message.tipomensaje + " Nota " + message.nota;
+    var encodedMsg = "Timestamp: " + message.timestamp + " Usuario: " + user + " tipo mensaje: " + message.tipomensaje + " Nota " + message.nota;
     var li = document.createElement("li");
     li.textContent = encodedMsg;
-    
         document.getElementById("logList").appendChild(li);
 });
 
