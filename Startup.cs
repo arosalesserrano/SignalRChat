@@ -38,7 +38,8 @@ namespace SignalRChat
             app.UseCors(builder => builder
                 .AllowAnyHeader()
                 .AllowAnyMethod()
-                .SetIsOriginAllowed((host) => true)
+                .AllowAnyOrigin()
+                //.SetIsOriginAllowed((host) => true)
                 .AllowCredentials()
             );
             if (env.IsDevelopment())
