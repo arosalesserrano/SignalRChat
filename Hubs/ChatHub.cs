@@ -16,8 +16,8 @@ namespace SignalRChat.Hubs
             // Inicialmente se utilizaba como log el propio envío de mensajes
             mensajjje.tipomensaje = "Bienvenida";
             mensajjje.timestamp=(Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-            mensajjje.nota = "Se envia mensaje";
-            await Clients.All.SendAsync("ReceiveMessage", "difusion_jueces", message);
+            mensajjje.nota = message;
+            await Clients.All.SendAsync("ReceiveMessage", "difusion_jueces", mensajjje);
             
             string juez ="";
             string dorsal="";

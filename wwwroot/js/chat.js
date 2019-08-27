@@ -13,7 +13,7 @@ connection.on("ReceiveMessage", function (user, message) {
    // alert(message);
     var msg = message.nota;
     var encodedMsg = "Timestamp: "+ message.timestamp + " Usuario: " + user + " tipo mensaje: " + message.tipomensaje + ". Puntua " + msg;
-    document.getElementById("dorsalInput").value = encodedMsg;
+    //document.getElementById("dorsalInput").value = encodedMsg;
     var li = document.createElement("li");
     li.textContent = encodedMsg;
     if (user == "arosales" || user== "difusion_jueces") {
