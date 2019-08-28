@@ -17,7 +17,7 @@ namespace SignalRChat.Hubs
             mensajjje.tipomensaje = "Bienvenida";
             mensajjje.timestamp=(Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
             mensajjje.nota = message;
-            await Clients.All.SendAsync("ReceiveMessage", "difusion_jueces", mensajjje);
+            await Clients.All.SendAsync("ReceiveMessage", "difusion_jueces", "Hola Caracola 1");
             
             string juez ="";
             string dorsal="";
@@ -57,7 +57,7 @@ namespace SignalRChat.Hubs
                 mensajje.puntuacion = "8.5";
                 mensajje.nota = "Ahora estamos dentro del try";
 
-                await Clients.All.SendAsync("ReceiveMessage", user, mensajje);
+                await Clients.All.SendAsync("ReceiveMessage", user, "Hola Caracola");
 
                 // Abre la base de datos
                 databaseConnection.Open();
