@@ -11,12 +11,12 @@ connection.on("ReceiveMessage", function (user, message) {
     // segun el tipo de mensaje lo pondremos en la lista messagesList o en la lista logList
     //if(message.tipomensaje)
    // alert(message);
-    var msg = message.nota;
-    var encodedMsg = "Timestamp: "+ message.timestamp + " Usuario: " + user + " tipo mensaje: " + message.tipomensaje + ". Puntua " + msg;
+    var inputuser = document.getElementById("userInput").value;
+    var encodedMsg = "Timestamp: " + message.timestamp + " Usuario: " + user + " tipo mensaje: " + message.tipomensaje + ". Puntua " + message.nota;
     //document.getElementById("dorsalInput").value = encodedMsg;
     var li = document.createElement("li");
     li.textContent = encodedMsg;
-    if (user == "arosales" || user== "difusion_jueces") {
+    if (user == inputuser || user== "difusion_jueces") {
         document.getElementById("messagesList").appendChild(li);
 
     } else {
@@ -36,12 +36,8 @@ connection.start().then(function () {
 document.getElementById("sendButton").addEventListener("click", function (event) {
     var user = document.getElementById("userInput").value;
     var puntuacion = document.getElementById("enteroInput").value + "." + document.getElementById("decimaInput").value;
-    var dorsal = document.getElementById("dorsalInput").value;
     var timestamp = Math.floor(Date.now() / 1000);
-    var message = timestamp + "," + user + "," + puntuacion + "," + dorsal;
-    //message.tipomensaje = "Control";
-    //message.nota = "Enviado desde javascript";
-    //message.usuario = document.getElementById("userInput").value;
+    var message = timestamp + "," + user + "," + puntuacion;
     connection.invoke("SendMessage", user, message).catch(function (err) {
         return console.error(err.toString());
     });

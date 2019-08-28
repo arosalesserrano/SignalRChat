@@ -19,15 +19,6 @@ namespace SignalRChat.Hubs
             mensajjje.nota = message;
             await Clients.All.SendAsync("ReceiveMessage", "difusion_jueces", mensajjje);
             
-            string juez ="";
-            string dorsal="";
-            string puntuacion="";
-            string roljuez="";
-            string paneljuez="";
-            String[] TagIds = message.Split(",");
-            juez = "arosales";// TagIds[0];
-            puntuacion = "0.00";// TagIds[1];
-            dorsal = "sdsd";// TagIds[2];
             string connectionString = "datasource=192.168.0.94;port=3306;username=apppruebas;password=Capeluam209173$$_;database=test;";
             // Tu consulta en SQL
             //string query = "UPDATE SCORE SET P = 4 WHERE id = 5";
@@ -51,12 +42,7 @@ namespace SignalRChat.Hubs
 
             try
             {
-                Models.mensaje mensajje = new Models.mensaje();
-                mensajje.tipomensaje = "Envio-mensaje";
-                mensajje.dorsal = "10";
-                mensajje.puntuacion = "8.5";
-                mensajje.nota = "Ahora estamos dentro del try";
-
+                
               //  await Clients.All.SendAsync("ReceiveMessage", user, mensajje);
 
                 // Abre la base de datos
