@@ -30,19 +30,33 @@ namespace SignalRChat
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSignalR();
+            services.AddCors(options =>
+            {
+                options.AddPolicy(
+                    "AllowAny",
+                    x =>
+                    {
+                        x.AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .SetIsOriginAllowed(isOriginAllowed: _ => true)
+                        .AllowCredentials();
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseCors(builder => builder
+
+
+          /*  app.UseCors(builder => builder
                 .AllowAnyHeader()
                 .AllowAnyMethod()
                 .AllowAnyOrigin()
                 //.SetIsOriginAllowed((host) => true)
                 .SetIsOriginAllowed(isOriginAllowed: _ => true)
                 .AllowCredentials()
-            );
+            );*/
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
