@@ -37,7 +37,7 @@ document.getElementById("sendButton").addEventListener("click", function (event)
     var user = document.getElementById("userInput").value;
     var puntuacion = document.getElementById("enteroInput").value + "." + document.getElementById("decimaInput").value;
     var timestamp = Math.floor(Date.now() / 1000);
-    var message = timestamp + "," + "PUNTUACION" + user + "," + puntuacion;
+    var message = timestamp + "," + "PUNTUACION" + "," + user + "," + puntuacion;
     connection.invoke("SendMessage", user, message).catch(function (err) {
         return console.error(err.toString());
     });
