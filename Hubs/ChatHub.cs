@@ -20,23 +20,12 @@ namespace SignalRChat.Hubs
             await Clients.All.SendAsync("ReceiveMessage", "difusion_jueces", mensajjje);
             
             string connectionString = "datasource=192.168.0.94;port=3306;username=apppruebas;password=Capeluam209173$$_;database=test;";
-            // Tu consulta en SQL
-            //string query = "UPDATE SCORE SET P = 4 WHERE id = 5";
-            
-            string queryIntroducirpuntuaciones = "INSERT INTO Puntuaciones(Juez, Puntuacion, Dorsal) VALUES('"+juez+"','"+puntuacion+"','"+dorsal+"') ";
-            string queryConsularJuezValido = "SELECT * FROM Jueces WHERE ACTIVO=1 AND ID='" + juez+"'";
-            string queryConsularRolJuez = "SELECT rol,panel FROM RolesJueces WHERE IDJUEZ='" + juez + "'";
-            string queryIntroducirpuntuacionesscore;
+           
             // Prepara la conexión
             MySqlDataAdapter ad = new MySqlDataAdapter();
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             
-            MySqlCommand commandDatabaseintroducirpuntuaciones = new MySqlCommand(queryIntroducirpuntuaciones, databaseConnection);
-            MySqlCommand commandConsularJuezValido = new MySqlCommand(queryConsularJuezValido, databaseConnection);
-            MySqlCommand commandConsularRolJuez = new MySqlCommand(queryConsularRolJuez, databaseConnection);
-            ad.SelectCommand = commandConsularJuezValido;
-            commandDatabaseintroducirpuntuaciones.CommandTimeout = 60;
-            commandConsularJuezValido.CommandTimeout = 60;
+           
             //MySqlDataReader reader;
             // A consultar !
 
