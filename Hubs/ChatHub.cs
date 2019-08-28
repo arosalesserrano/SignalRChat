@@ -41,44 +41,8 @@ namespace SignalRChat.Hubs
                 MySqlCommand commandDatabaseintroducirLogMensajes = new MySqlCommand(queryIntroducirLogMensajes, databaseConnection);
                 commandDatabaseintroducirLogMensajes.ExecuteNonQuery();
                 databaseConnection.Close();
-                /*
-                DataSet ds = new DataSet();
-                ad.Fill(ds);
-                if (ds.Tables[0].Rows.Count>0) // Si el juez existe y está activo, inserta la puntuación
-                {
-                    // se añaden las puntuaciones a la tabla de puntuaciones
-                    commandDatabaseintroducirpuntuaciones.ExecuteNonQuery();
-                    // se añaden las puntuaciones a la tabla scores, teniendo en cuenta el rol del juez, por lo que hay que localizarlo en la tabla roles jueces
                 
-                    ad.SelectCommand = commandConsularRolJuez;
-                    DataSet dsjv = new DataSet();
-                    ad.Fill(dsjv);
-                    if (dsjv.Tables[0].Rows.Count>0)
-                    {
-                        
-                        DataRow row;
-                        row = dsjv.Tables[0].Rows[0];
-                        roljuez = row[0].ToString();
-                        paneljuez= row[1].ToString();
-                        // sólo si se localiza se añade la puntuación al score 
-                        queryIntroducirpuntuacionesscore = "UPDATE SCORE SET " + roljuez + "='" + puntuacion + "' WHERE panel='" + paneljuez + "' and dorsal='" + dorsal + "' and enablescore='1'";
-                        MySqlCommand commandDatabaseintroducirpuntuacionesscore = new MySqlCommand(queryIntroducirpuntuacionesscore, databaseConnection);
-                        commandDatabaseintroducirpuntuacionesscore.ExecuteNonQuery();
-                    }
-
-                    // aqui hacemos lo que tengamos que hacer 
-                    await Clients.All.SendAsync("ReceiveMessage", "arosales2", "Perfe");
-                }
-                else
-                {
-                    await Clients.All.SendAsync("ReceiveMessage", "arosales3", "Error");
-                }
-                //ad
-               //commandDatabaseintroducirpuntuaciones.ExecuteNonQuery();
              
-                databaseConnection.Close();
-
-    */
             }
 
             catch (Exception ex)
