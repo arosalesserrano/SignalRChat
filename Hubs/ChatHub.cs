@@ -17,7 +17,7 @@ namespace SignalRChat.Hubs
             mensajjje.tipomensaje = "Bienvenida";
             mensajjje.timestamp=(Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
             mensajjje.nota = message;
-            await Clients.All.SendAsync("ReceiveMessage", "difusion_jueces", mensajjje);
+            await Clients.All.SendAsync("ReceiveMessage", user, mensajjje);
             
             string connectionString = "datasource=192.168.0.94;port=3306;username=apppruebas;password=Capeluam209173$$_;database=test;";
            
