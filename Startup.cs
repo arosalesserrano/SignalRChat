@@ -40,6 +40,7 @@ namespace SignalRChat
                 .AllowAnyMethod()
                 .AllowAnyOrigin()
                 //.SetIsOriginAllowed((host) => true)
+                .SetIsOriginAllowed(isOriginAllowed: _ => true)
                 .AllowCredentials()
             );
             if (env.IsDevelopment())
